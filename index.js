@@ -23,7 +23,7 @@ let material = new THREE.MeshStandardMaterial({
 });
 let cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
-cube.position.y = 1;
+// cube.position.y = 1;
 
 let light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
@@ -33,8 +33,9 @@ let controls = new THREE.OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.update();
 
-let grid = new THREE.GridHelper(20,20);
+let grid = new THREE.GridHelper(50,50);
 scene.add(grid);
+grid.position.y = -1
 
 
 const tl = gsap.timeline();

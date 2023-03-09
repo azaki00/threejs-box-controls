@@ -20,9 +20,14 @@ function moveForward(object, camera){
         z: (object.position.z) + -1*disposition,
         duration:1*speed,
     })
-    .to(camera.position, {
+    tl.to(camera.position, {
         onUpdate: function(){
-            camera.lookAt(object.position.x, object.position.y, object.position.z);
+            
+        },
+        onComplete: function(){
+            // camera.lookAt(object.position.x, object.position.y, object.position.z);
+            camera.position.z -= 1;
+            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
         }
     })
     console.log("MOVING FORWARD");
