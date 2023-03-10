@@ -14,4 +14,29 @@ body{
     top: 0;
     left: 0;
     color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.controlApply{
+    font-size: 1em;
+    font-family: 'Oswald', sans-serif;
+    color:#151515;
+    background-color: #1bc4ac;
+    border-radius: 10px;
+    align-items: center;
+    transition: .3s;
+}
+.controlApply:hover{
+    cursor: pointer;
+    color:#000000;
+    background-color: #0bffda;
+    /* border:#1bc4ac 1px solid; */
+}
+
+.OrbitControls{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

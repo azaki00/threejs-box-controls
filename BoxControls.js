@@ -129,11 +129,24 @@ function rotateRight(object, camera){
     console.log("ROTATING CLOCKWISE");
 }
 
+function jump(object){
+    tl.to(object.position,{
+        y: object.position.y + 1*disposition,
+        duration: 2*speed,
+        ease: "Power4.easeOut"
+    })
+    .to(object.position,{
+        y: 1,
+        duration: 2*speed,
+        ease: "bounce"
+    })
+    console.log("JUMPING! --YAY--");
+}
+
 function cameraReset(object ,camera, Yangle, Zangle){
     camera.position.x = object.position.x;
     camera.position.y = object.position.y + Yangle;
     camera.position.z = object.position.z + Zangle;
-
     camera.lookAt(object.position.x, object.position.y, object.position.z);
     console.log("Camera Reset Successful!");
 }

@@ -90,7 +90,7 @@ document.addEventListener(
         break;
       }
       case "Space": {
-        jump(cube.camera);
+        jump(cube);
         break;
       }
       default:
@@ -99,6 +99,20 @@ document.addEventListener(
   },
   false
 );
+// let controlBtn = document.getElementsByClassName('controlApply')[0];
+
+// function toggleControls(){
+//     if(controlBtn.hasAttribute('checked')){
+//         let controlsX = new THREE.OrbitControls(cube, renderer.domElement);
+//         controlsX.enabled = true;
+//         controlsX.enableDamping=true;
+//         console.log("is checked");
+//     }
+//     else{
+//         controlsX.enabled = false;
+//         console.log("is not checked");
+//     }
+// }
 
 function onResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -110,7 +124,7 @@ window.addEventListener("resize", onResize, false);
 
 function animate() {
   requestAnimationFrame(animate);
-  // controls.update();
+//   controlBtn.addEventListener('onClick', toggleControls);
   renderer.render(scene, camera);
 }
 animate();
