@@ -12,6 +12,8 @@ camera.position.z = cameraZangle;
 camera.position.y = cameraYangle;
 // camera.position.x = 3;
 camera.lookAt(0, 0, 0);
+let cameraHelper = new THREE.CameraHelper(camera);
+scene.add(cameraHelper);
 
 let renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector("#bg"),

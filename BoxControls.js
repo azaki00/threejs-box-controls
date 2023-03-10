@@ -12,6 +12,9 @@ let tl = gsap.timeline();
 gsap.registerPlugin(ScrollTrigger);
 
 
+function displayCoordinates(object){
+    console.log("coordinates : (x: "+object.position.x+", y: "+object.position.y+", z: "+object.position.z+")");
+}
 
 function moveForward(object, camera){
     tl.to(object.position, {
@@ -29,9 +32,7 @@ function moveForward(object, camera){
             
         },
         onComplete: function(){
-            // camera.lookAt(object.position.x, object.position.y, object.position.z);
-            // camera.position.z -= 1;
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
     console.log("MOVING FORWARD");
@@ -42,9 +43,6 @@ function moveBackward(object, camera){
         y: object.position.y, 
         z: (object.position.z) + 1*disposition,
         duration:1*speed,
-        // onUpdate: function(){
-        //     camera.lookAt(object.position.x, object.position.y, object.position.z);
-        // }
     })
     tl.to(camera.position, {
         z: camera.position.z += 1,
@@ -53,9 +51,7 @@ function moveBackward(object, camera){
             
         },
         onComplete: function(){
-            // camera.lookAt(object.position.x, object.position.y, object.position.z);
-            // camera.position.z += 1;
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
     console.log("MOVING BACKWARD");
@@ -66,9 +62,6 @@ function moveLeft(object, camera){
         y: object.position.y, 
         z: object.position.z,
         duration:1*speed,
-        // onUpdate: function(){
-        //     camera.lookAt(object.position.x, object.position.y, object.position.z);
-        // }
     })
     tl.to(camera.position, {
         x: camera.position.x -= 1,
@@ -77,9 +70,7 @@ function moveLeft(object, camera){
             
         },
         onComplete: function(){
-            // camera.lookAt(object.position.x, object.position.y, object.position.z);
-            // camera.position.x -= 1;
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
     console.log("MOVING LEFT");
@@ -90,9 +81,6 @@ function moveRight(object, camera){
         y: object.position.y, 
         z: object.position.z,
         duration:1*speed,
-        // onUpdate: function(){
-        //     camera.lookAt(object.position.x, object.position.y, object.position.z);
-        // }
     })
     tl.to(camera.position, {
         x: camera.position.x += 1,
@@ -101,9 +89,7 @@ function moveRight(object, camera){
             
         },
         onComplete: function(){
-            // camera.lookAt(object.position.x, object.position.y, object.position.z);
-            // camera.position.x += 1;
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
     console.log("MOVING RIGHT");
@@ -111,13 +97,8 @@ function moveRight(object, camera){
 
 function rotateLeft(object, camera){
     tl.to(object.rotation, {
-        // x: object.rotation.x + 1*disposition,
         y: object.rotation.y + Math.PI*0.5*disposition, 
-        // z: object.position.z,
         duration:1*speed,
-        // onUpdate: function(){
-        //     camera.lookAt(object.position.x, object.position.y, object.position.z);
-        // }
     })
     tl.to(camera.position, {
         duration:1*speed,
@@ -125,9 +106,7 @@ function rotateLeft(object, camera){
             
         },
         onComplete: function(){
-            camera.lookAt(object.position.x, object.position.y, object.position.z);
-
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
     console.log("ROTATING ANTI-CLOCKWISE");
@@ -135,13 +114,8 @@ function rotateLeft(object, camera){
 
 function rotateRight(object, camera){
     tl.to(object.rotation, {
-        // x: object.rotation.x + 1*disposition,
         y: object.rotation.y - Math.PI*0.5*disposition, 
-        // z: object.position.z,
         duration:1*speed,
-        // onUpdate: function(){
-        //     camera.lookAt(object.position.x, object.position.y, object.position.z);
-        // }
     })
     tl.to(camera.position, {
         duration:1*speed,
@@ -149,12 +123,10 @@ function rotateRight(object, camera){
             
         },
         onComplete: function(){
-            camera.lookAt(object.position.x, object.position.y, object.position.z);
-
-            console.log("box position x,y,z\n"+ object.position.x +" "+ object.position.y +" "+ object.position.z +" ");
+            displayCoordinates(object);
         }
     })
-    console.log("ROTATING ANTI-CLOCKWISE");
+    console.log("ROTATING CLOCKWISE");
 }
 
 function cameraReset(object ,camera, Yangle, Zangle){
