@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 #bg{
     margin: 0;
 }
 body{
     margin: 0;
+}
+
+#legends{
+    padding:5px;
+    font-family: 'Oswald', sans-serif;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    color: #ffffff;
 }
